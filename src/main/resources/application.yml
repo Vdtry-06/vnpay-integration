@@ -1,0 +1,12 @@
+server:
+  port: ${API_PORT:8080}
+
+spring:
+  application:
+    api-prefix: ${API_PREFIX:/api/v1}
+    name: vnpay
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+
