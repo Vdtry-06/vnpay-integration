@@ -10,8 +10,7 @@ import java.util.Set;
 public abstract class ProductDTO {
 
     @Builder
-    @Getter
-    @Setter
+    @Data
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class CreateRequest {
         private String name;
@@ -23,8 +22,7 @@ public abstract class ProductDTO {
     }
 
     @Builder
-    @Getter
-    @Setter
+    @Data
     public static class UpdateRequest {
         public String id;
         public String name;
@@ -35,15 +33,14 @@ public abstract class ProductDTO {
     }
 
     @Builder
-    @Getter
-    @Setter
+    @Data
     @AllArgsConstructor
     @NoArgsConstructor
     public static class ProductResponse {
         public String id;
         public String name;
-        public double price;
-        public int stock;
+        public Double price;
+        public Integer stock;
         public String description;
         public List<CategoryResponse> categories;
     }

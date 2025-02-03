@@ -1,8 +1,13 @@
 package com.vdtry.apidoc.vnpay.core.exception;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.experimental.FieldDefaults;
 
 @Getter
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
+@AllArgsConstructor
 public enum ErrorCode {
     INVALID_PARAMETER("E001", "Invalid Parameter"),
     NOT_FOUND("E002", "Not Found"),
@@ -13,11 +18,6 @@ public enum ErrorCode {
     INVALID_REQUEST_BODY("E007", "Invalid Request Body"),
     CREATE_PAYMENT_FAILED("E008", "Create payment failed");
 
-    private final String code;
-    private final String message;
-
-    ErrorCode(String code, String message) {
-        this.code = code;
-        this.message = message;
-    }
+    String code;
+    String message;
 }

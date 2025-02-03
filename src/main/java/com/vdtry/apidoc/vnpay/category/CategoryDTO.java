@@ -4,16 +4,14 @@ import lombok.*;
 
 public abstract class CategoryDTO {
     @Builder
-    @Getter
-    @Setter
+    @Data
     public static class CreateRequest {
         public String name;
         public String description;
     }
 
     @Builder
-    @Getter
-    @Setter
+    @Data
     public static class UpdateRequest {
         public String id;
         public String name;
@@ -21,8 +19,7 @@ public abstract class CategoryDTO {
     }
 
     @Builder
-    @Getter
-    @Setter
+    @Data
     @AllArgsConstructor
     @NoArgsConstructor
     public static class CategoryResponse {

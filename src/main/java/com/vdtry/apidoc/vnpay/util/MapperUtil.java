@@ -3,7 +3,6 @@ package com.vdtry.apidoc.vnpay.util;
 import org.modelmapper.ModelMapper;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class MapperUtil {
     private static final ModelMapper modelMapper = new ModelMapper();
@@ -15,6 +14,6 @@ public class MapperUtil {
     public static  <S, D> List<D> mapList(List<S> sourceList, Class<D> destinationType) {
         return sourceList.stream()
                 .map(source -> modelMapper.map(source, destinationType))
-                .collect(Collectors.toList());
+                .toList();
     }
 }

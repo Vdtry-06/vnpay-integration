@@ -15,7 +15,9 @@ import java.util.List;
 @RequiredArgsConstructor
 @Slf4j
 public class CategoryService {
+
     private final CategoryRepository categoryRepository;
+
     public CategoryDTO.CategoryResponse addCategory(CategoryDTO.CreateRequest category) {
         log.info("CategoryService.addCategory");
         return MapperUtil
@@ -28,6 +30,7 @@ public class CategoryService {
 
     public CategoryDTO.CategoryResponse getCategory(String id) {
         log.info("CategoryService.getCategory");
+
         return MapperUtil
                 .mapObject(
                         categoryRepository.findById(id).orElseThrow(() ->
@@ -40,6 +43,7 @@ public class CategoryService {
         log.info("CategoryService.deleteCategory");
         categoryRepository.deleteById(id);
     }
+
     public CategoryDTO.CategoryResponse updateCategory(CategoryDTO.UpdateRequest category) {
         log.info("CategoryService.updateCategory");
         Category categoryToUpdate = categoryRepository.findById(category.getId()).orElseThrow(() ->

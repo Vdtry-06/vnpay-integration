@@ -1,8 +1,10 @@
 package com.vdtry.apidoc.vnpay.core.exception;
 
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.FieldDefaults;
 import org.springframework.http.HttpStatusCode;
 
 import java.util.Map;
@@ -10,9 +12,10 @@ import java.util.Map;
 @Getter
 @Setter
 @AllArgsConstructor
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class CustomException extends RuntimeException{
-    private HttpStatusCode httpStatusCode;
-    private String errorCode;
-    private String message;
-    private Map<String, Object> details;
+    HttpStatusCode httpStatusCode;
+    String errorCode;
+    String message;
+    Map<String, Object> details;
 }

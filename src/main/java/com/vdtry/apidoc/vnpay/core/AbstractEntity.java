@@ -1,10 +1,8 @@
 package com.vdtry.apidoc.vnpay.core;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDateTime;
 
@@ -13,12 +11,13 @@ import java.time.LocalDateTime;
 @MappedSuperclass
 @Getter
 @Setter
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public abstract class AbstractEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+    String id;
+    LocalDateTime createdAt;
+    LocalDateTime updatedAt;
 
     @PrePersist
     public void prePersist() {
